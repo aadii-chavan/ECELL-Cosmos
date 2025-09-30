@@ -3,10 +3,15 @@ import ShinyText from './ShinyText';
 import ScrollFloat from "./ScrollFloat";
 import { Target, Rocket, ListChecks } from 'lucide-react';
 import { motion } from 'motion/react';
+import SpotlightCard from './SpotlightCard';
+import Threads from './Threads';
 
 const AboutUsSection = () => {
   return (
     <section className="section about-section" id="about">
+      <div className="about-threads-bg">
+        <Threads amplitude={1} distance={0} enableMouseInteraction={true} />
+      </div>
       <div className="container">
         <span className="section-kicker">Who we are</span>
         <h2 className="section-title">
@@ -37,39 +42,48 @@ const AboutUsSection = () => {
           }}
         >
           <motion.div
-            className="card"
             variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}
           >
-            <div className="card-icon"><Target size={20} /></div>
-            <h3>Our Vision</h3>
-            <p>
-              Producing successful entrepreneurs who are imbibed with strong
-              leadership qualities, driven by innovation, and guided by ethical
-              business practices, with the vision of creating sustainable
-              ventures that make a meaningful global impact.
-            </p>
+            <SpotlightCard className="about-card" spotlightColor="rgba(0, 229, 255, 0.2)">
+              <div className="about-card-header">
+                <div className="card-icon"><Target size={18} /></div>
+                <h3 className="about-card-title">Our Vision</h3>
+              </div>
+              <p>
+                Producing successful entrepreneurs who are imbibed with strong
+                leadership qualities, driven by innovation, and guided by ethical
+                business practices, with the vision of creating sustainable
+                ventures that make a meaningful global impact.
+              </p>
+            </SpotlightCard>
           </motion.div>
           <motion.div
-            className="card"
             variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}
           >
-            <div className="card-icon"><Rocket size={20} /></div>
-            <h3>Our Mission</h3>
-            <p>
-              Instill the passion, determination, and entrepreneurial spirit
-              among students to actively explore, pursue, and excel in the world
-              of entrepreneurship.
-            </p>
+            <SpotlightCard className="about-card" spotlightColor="rgba(0, 229, 255, 0.2)">
+              <div className="about-card-header">
+                <div className="card-icon"><Rocket size={18} /></div>
+                <h3 className="about-card-title">Our Mission</h3>
+              </div>
+              <p>
+                Instill the passion, determination, and entrepreneurial spirit
+                among students to actively explore, pursue, and excel in the world
+                of entrepreneurship.
+              </p>
+            </SpotlightCard>
           </motion.div>
           <motion.div
-            className="card"
             variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}
           >
-            <div className="card-icon"><ListChecks size={20} /></div>
-            <h3>Objectives</h3>
-            <p>
-              Organizing Entrepreneurship Awareness Camps and Entrepreneurship Development Programmes that inspire, educate, and equip students with the knowledge and skills to begin their entrepreneurial journey.
-            </p>
+            <SpotlightCard className="about-card" spotlightColor="rgba(0, 229, 255, 0.2)">
+              <div className="about-card-header">
+                <div className="card-icon"><ListChecks size={18} /></div>
+                <h3 className="about-card-title">Objectives</h3>
+              </div>
+              <p>
+                Organizing Entrepreneurship Awareness Camps and Entrepreneurship Development Programmes that inspire, educate, and equip students with the knowledge and skills to begin their entrepreneurial journey.
+              </p>
+            </SpotlightCard>
           </motion.div>
         </motion.div>
       </div>
