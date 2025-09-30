@@ -1,0 +1,29 @@
+.shiny-text {
+  color: #b5b5b5a4; /* Softer base color */
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0.9) 45%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  display: inline-block;
+  animation: shine 3s linear infinite; /* Faster animation */
+}
+
+@keyframes shine {
+  0% {
+    background-position: 200%;
+  }
+  100% {
+    background-position: -200%;
+  }
+}
+
+.shiny-text.disabled {
+  animation: none;
+  color: inherit; /* Revert color when disabled */
+  background: none;
+}
