@@ -6,6 +6,7 @@ const AboutUsSection = () => {
   return (
     <section className="section about-section" id="about">
       <div className="container">
+        <span className="section-kicker">Who we are</span>
         <h2 className="section-title">
           <ScrollFloat
             animationDuration={1}
@@ -40,7 +41,6 @@ const AboutUsSection = () => {
               among students to actively explore, pursue, and excel in the world
               of entrepreneurship.
             </p>
-             
           </div>
           <div className="card">
             <h3>Objectives</h3>

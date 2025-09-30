@@ -3,15 +3,14 @@ import './OurTeam.css';
 import ScrollFloat from './ScrollFloat';
 import ProfileCard from './ProfileCard';
 
-const teamMembers = [
-  { role: 'Convener', name: 'Rohit Dane' },
-  { role: 'ADVISORY', name: 'Divyanshi Singh' },
-  { role: 'ADVISORY', name: 'Harshvardhan Veer' },
-  { role: 'CHIEFS', name: 'Manas Wagle' },
-  { role: 'CHIEFS', name: 'Shriyog Muley' },
-  { role: 'LIAISONS', name: 'Ayush Deokar' },
-  { role: 'LIAISONS', name: 'Ashlesha Wagh' }
-];
+const teamHierarchy = {
+  'Convener': ['Rohit Dane'],
+  'Honorary Convener': ['Ishawar Borade'],
+  'Chief Advisors': ['Ashlesha Wagh', 'Pratik Jadhav'],
+  'Chief of Branding': ['Siddhi Chollangi'],
+  'Chief of Management': ['Rushabh Mane'],
+  'Chief of Relations': ['Rajvee Pardeshi']
+};
 
 const OurTeamSection = () => {
   return (
@@ -20,23 +19,28 @@ const OurTeamSection = () => {
         <h2 className="section-title">
           <ScrollFloat>Our Team</ScrollFloat>
         </h2>
-        <div className="team-grid">
-          {teamMembers.map((member, index) => (
-            <ProfileCard
-              key={index}
-              name={member.name}
-              title={member.role}
-              handle={member.name.toLowerCase().replace(' ', '')}
-              status="Online"
-              contactText="Contact Me"
-              avatarUrl={`https://avatars.dicebear.com/api/avataaars/${member.name}.svg`}
-              showUserInfo={true}
-              enableTilt={true}
-              enableMobileTilt={false}
-              onContactClick={() => console.log('Contact clicked')}
-            />
-          ))}
-        </div>
+        {Object.entries(teamHierarchy).map(([role, members]) => (
+          <div key={role} className="team-role-group">
+            <h3 className="role-title">{role}</h3>
+            <div className="team-grid">
+              {members.map((name, index) => (
+                <ProfileCard
+                  key={index}
+                  name={name}
+                  title={role}
+                  handle={name.toLowerCase().replace(' ', '')}
+                  status="Online"
+                  contactText="Contact Me"
+                  avatarUrl={`https://avatars.dicebear.com/api/avataaars/${name}.svg`}
+                  showUserInfo={true}
+                  enableTilt={true}
+                  enableMobileTilt={false}
+                  onContactClick={() => console.log('Contact clicked')}
+                />
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
