@@ -1,14 +1,14 @@
 .team-section { background: #0a0c12; padding: 0; }
 
-.team-section-block { margin: 40px 0 52px; }
-.team-section-block + .team-section-block { margin-top: 64px; padding-top: 24px; position: relative; }
+.team-section-block { margin: 40px 0 32px; }
+.team-section-block + .team-section-block { margin-top: 32px; padding-top: 18px; position: relative; }
 .team-section-block + .team-section-block::before { content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: min(900px, 92%); height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.10), transparent); }
 .team-section-title { margin: 0 0 16px; font-size: 13px; letter-spacing: .16em; text-transform: uppercase; color: #9bbcff; opacity: .95; text-align: center; }
 .team-section-title::after { content: ""; display: block; width: 72px; height: 2px; margin: 10px auto 0; border-radius: 2px; background: linear-gradient(90deg, #33aaff, #ff4fa3); opacity: .6; }
-.team-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px; justify-items: center; }
-.team-card { width: 100%; max-width: 320px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 16px; padding: 20px; text-align: center; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease; }
+.team-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; justify-items: center; }
+.team-card { width: 100%; max-width: 370px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 20px; padding: 32px; text-align: center; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease; }
 .team-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,0,0,.4); background: rgba(255,255,255,.055); border-color: rgba(255,255,255,.18); }
-.team-avatar { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto 12px; border: 2px solid rgba(255,255,255,.18); }
+.team-avatar { width: 104px; height: 104px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto 16px; border: 2.5px solid rgba(255,255,255,.18); }
 .team-name { margin: 0; font-size: 18px; font-weight: 700; letter-spacing: .01em; }
 .team-role { margin-top: 4px; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: #b9c6ff; }
 .team-desc { margin: 10px 0 0; font-size: 14px; line-height: 1.6; color: #cfd8e3; }
@@ -18,6 +18,11 @@
 .role-pill { display: none; }
 
 .role-title { font-size: 0; }
+
+/* Reduce gap between Convener and Chief Advisor */
+.team-section-block:nth-of-type(2) { margin-top: 16px !important; }
+.team-section-block:nth-of-type(2) .team-cards { gap: 18px !important; }
+.team-section-block:nth-of-type(1) .team-cards { gap: 18px !important; }
 
 @media (max-width: 640px) {
   .team-cards { grid-template-columns: 1fr 1fr; gap: 16px; }
