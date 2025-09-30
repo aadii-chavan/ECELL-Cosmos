@@ -619,7 +619,7 @@ export const HeroSection = () => {
           <span></span>
           <span></span>
         </div>
-        <div className="vertical-text">SPACE</div>
+        <div className="vertical-text">ECELL-VIT</div>
       </div>
 
       {/* Main content */}
