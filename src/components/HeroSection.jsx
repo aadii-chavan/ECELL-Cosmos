@@ -64,7 +64,8 @@ export const HeroSection = () => {
       refs.renderer.setSize(window.innerWidth, window.innerHeight);
       refs.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       refs.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      refs.renderer.toneMappingExposure = 0.5;
+      // Reduce overall scene exposure to prevent overblown highlights
+      refs.renderer.toneMappingExposure = 0.32;
 
       // Post-processing
       refs.composer = new EffectComposer(refs.renderer);
@@ -73,9 +74,9 @@ export const HeroSection = () => {
 
       const bloomPass = new UnrealBloomPass(
         new THREE.Vector2(window.innerWidth, window.innerHeight),
-        0.8,
-        0.4,
-        0.85
+        0.35, // strength (reduced)
+        0.25, // radius (tighter glow)
+        0.92  // threshold (only very bright areas bloom)
       );
       refs.composer.addPass(bloomPass);
 
@@ -191,7 +192,7 @@ export const HeroSection = () => {
           time: { value: 0 },
           color1: { value: new THREE.Color(0x0033ff) },
           color2: { value: new THREE.Color(0xff0066) },
-          opacity: { value: 0.3 }
+          opacity: { value: 0.18 }
         },
         vertexShader: `
           varying vec2 vUv;
@@ -306,12 +307,12 @@ export const HeroSection = () => {
           
           void main() {
             float intensity = pow(0.7 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.0);
-            vec3 atmosphere = vec3(0.3, 0.6, 1.0) * intensity;
+            vec3 atmosphere = vec3(0.25, 0.55, 0.95) * intensity * 0.85; // slightly dimmer base
             
-            float pulse = sin(time * 2.0) * 0.1 + 0.9;
+            float pulse = sin(time * 2.0) * 0.06 + 0.94; // reduced pulsing amplitude
             atmosphere *= pulse;
             
-            gl_FragColor = vec4(atmosphere, intensity * 0.25);
+            gl_FragColor = vec4(atmosphere, intensity * 0.18);
           }
         `,
         side: THREE.BackSide,
@@ -560,6 +561,44 @@ export const HeroSection = () => {
     
     return () => window.removeEventListener('scroll', handleScroll);
   }, [totalSections]);
+
+  // Simple one-time pause when leaving hero to About Us
+  const exitHoldRef = useRef(false);
+  useEffect(() => {
+    const HOLD_MS = 2000; // pause duration in ms (2 seconds)
+    const onWheelExitHold = (e) => {
+      const container = containerRef.current;
+      if (!container) return;
+
+      const top = container.getBoundingClientRect().top + window.scrollY;
+      const height = container.offsetHeight;
+      const winH = window.innerHeight;
+      const maxScroll = Math.max(height - winH, 1);
+      const y = window.scrollY;
+
+      // Only act within hero bounds
+      const withinHero = y >= top - 2 && y <= top + maxScroll + 2;
+      if (!withinHero) return;
+
+      const direction = Math.sign(e.deltaY);
+      const nearBottom = y >= top + maxScroll - 2;
+
+      // If user is trying to scroll down at the very bottom of the hero, hold briefly
+      if (direction > 0 && nearBottom) {
+        if (!exitHoldRef.current) {
+          exitHoldRef.current = true;
+          e.preventDefault();
+          setTimeout(() => { exitHoldRef.current = false; }, HOLD_MS);
+        } else {
+          // Continue blocking while holding
+          e.preventDefault();
+        }
+      }
+    };
+
+    window.addEventListener('wheel', onWheelExitHold, { passive: false });
+    return () => window.removeEventListener('wheel', onWheelExitHold, { passive: false });
+  }, []);
 
   const splitTitle = (text) => {
     return text.split('').map((char, i) => (
