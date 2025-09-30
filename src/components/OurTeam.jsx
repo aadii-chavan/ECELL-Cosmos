@@ -1,9 +1,10 @@
 import React from 'react';
 import './OurTeam.css';
 import ScrollFloat from './ScrollFloat';
+import ProfileCard from './ProfileCard';
 
 const teamMembers = [
-  { role: 'Convener', name: 'Ishawar Borade' },
+  { role: 'Convener', name: 'Rohit Dane' },
   { role: 'ADVISORY', name: 'Divyanshi Singh' },
   { role: 'ADVISORY', name: 'Harshvardhan Veer' },
   { role: 'CHIEFS', name: 'Manas Wagle' },
@@ -21,10 +22,19 @@ const OurTeamSection = () => {
         </h2>
         <div className="team-grid">
           {teamMembers.map((member, index) => (
-            <div key={index} className="team-member-card">
-              <h3 className="member-role">{member.role}</h3>
-              <p className="member-name">{member.name}</p>
-            </div>
+            <ProfileCard
+              key={index}
+              name={member.name}
+              title={member.role}
+              handle={member.name.toLowerCase().replace(' ', '')}
+              status="Online"
+              contactText="Contact Me"
+              avatarUrl={`https://avatars.dicebear.com/api/avataaars/${member.name}.svg`}
+              showUserInfo={true}
+              enableTilt={true}
+              enableMobileTilt={false}
+              onContactClick={() => console.log('Contact clicked')}
+            />
           ))}
         </div>
       </div>
