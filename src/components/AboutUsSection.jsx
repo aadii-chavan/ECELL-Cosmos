@@ -1,6 +1,8 @@
 import React from "react";
 import ShinyText from './ShinyText';
 import ScrollFloat from "./ScrollFloat";
+import { Target, Rocket, ListChecks } from 'lucide-react';
+import { motion } from 'motion/react';
 
 const AboutUsSection = () => {
   return (
@@ -24,8 +26,21 @@ const AboutUsSection = () => {
           speed={3} 
           className='section-description' 
         />
-        <div className="grid two-col">
-          <div className="card">
+        <motion.div
+          className="grid two-col"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.12 } }
+          }}
+        >
+          <motion.div
+            className="card"
+            variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}
+          >
+            <div className="card-icon"><Target size={20} /></div>
             <h3>Our Vision</h3>
             <p>
               Producing successful entrepreneurs who are imbibed with strong
@@ -33,22 +48,30 @@ const AboutUsSection = () => {
               business practices, with the vision of creating sustainable
               ventures that make a meaningful global impact.
             </p>
-          </div>
-          <div className="card">
+          </motion.div>
+          <motion.div
+            className="card"
+            variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}
+          >
+            <div className="card-icon"><Rocket size={20} /></div>
             <h3>Our Mission</h3>
             <p>
               Instill the passion, determination, and entrepreneurial spirit
               among students to actively explore, pursue, and excel in the world
               of entrepreneurship.
             </p>
-          </div>
-          <div className="card">
+          </motion.div>
+          <motion.div
+            className="card"
+            variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}
+          >
+            <div className="card-icon"><ListChecks size={20} /></div>
             <h3>Objectives</h3>
             <p>
               Organizing Entrepreneurship Awareness Camps and Entrepreneurship Development Programmes that inspire, educate, and equip students with the knowledge and skills to begin their entrepreneurial journey.
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

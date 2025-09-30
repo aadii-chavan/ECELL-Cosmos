@@ -66,6 +66,7 @@ body { margin: 0; background: #000; color: #e6e6e6; font-family: system-ui, -app
 .card::before { content: ""; position: absolute; inset: -1px; border-radius: 14px; padding: 1px; background: linear-gradient(120deg, rgba(51,170,255,.55), rgba(255,79,163,.55)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: .0; transition: opacity .35s ease; }
 .card:hover { transform: translateY(-6px); box-shadow: 0 10px 30px rgba(0,0,0,.45); background: rgba(255,255,255,0.055); border-color: rgba(255,255,255,0.16); }
 .card:hover::before { opacity: 1; }
+.card-icon { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 10px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); color: #cfe1ff; margin-bottom: 10px; }
 
 /* About section feature cards */
 .about-section .card h3 { margin: 0 0 8px; font-size: 18px; letter-spacing: .01em; }

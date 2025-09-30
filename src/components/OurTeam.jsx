@@ -1,6 +1,7 @@
 import React from 'react';
 import './OurTeam.css';
 import ScrollFloat from './ScrollFloat';
+import { motion } from 'motion/react';
 
 const members = [
   { name: 'Rohit Dane', role: 'Convener', description: 'Leads strategy, execution, and club operations.' },
@@ -31,19 +32,29 @@ const OurTeamSection = () => {
         ].map(({ title, filter }) => (
           <section className="team-section-block" key={title}>
             <h3 className="team-section-title">{title}</h3>
-            <div className="team-cards">
+            <motion.div
+              className="team-cards"
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
+            >
               {members.filter(filter).map((m) => {
                 const avatar = `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(m.name)}&backgroundType=gradientLinear&radius=50&fontFamily=Helvetica&scale=110`;
                 return (
-                  <article className="team-card" key={m.name}>
+                  <motion.article
+                    className="team-card"
+                    key={m.name}
+                    variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } }}
+                  >
                     <img className="team-avatar" src={avatar} alt={`${m.name} avatar`} />
                     <h4 className="team-name">{m.name}</h4>
                     <div className="team-role">{m.role}</div>
                     <p className="team-desc">{m.description}</p>
-                  </article>
+                  </motion.article>
                 );
               })}
-            </div>
+            </motion.div>
           </section>
         ))}
       </div>

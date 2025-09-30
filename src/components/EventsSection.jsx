@@ -1,5 +1,7 @@
 import React from 'react';
 import ScrollFloat from './ScrollFloat';
+import { Calendar, MapPin } from 'lucide-react';
+import { motion } from 'motion/react';
 
 const mockEvents = [
   {
@@ -36,13 +38,27 @@ const EventsSection = () => {
         <h2 className="section-title">
           <ScrollFloat>Events</ScrollFloat>
         </h2>
-        <div className="events-grid">
+        <motion.div
+          className="events-grid"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12 } } }}
+        >
           {mockEvents.map((e, idx) => (
-            <article key={e.id} className={`card event-card${idx % 2 === 1 ? ' event-card--alt' : ''}`}>
+            <motion.article
+              key={e.id}
+              className={`card event-card${idx % 2 === 1 ? ' event-card--alt' : ''}`}
+              variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}
+            >
               <div className="event-content">
                 <header className="event-header">
                   <span className="event-badge">Featured</span>
                   <h3 className="event-title">{e.title}</h3>
+                  <div className="event-meta">
+                    <span><Calendar size={14} /> TBD</span>
+                    <span><MapPin size={14} /> VIT Pune</span>
+                  </div>
                 </header>
                 <p className="event-description">{e.description}</p>
               </div>
@@ -51,9 +67,9 @@ const EventsSection = () => {
                   <img src={e.image} alt={`${e.title} cover`} onError={(ev) => { ev.currentTarget.style.display = 'none'; }} />
                 </div>
               )}
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
