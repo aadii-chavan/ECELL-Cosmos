@@ -51,7 +51,7 @@ body { margin: 0; background: #000; color: #e6e6e6; font-family: system-ui, -app
 .events-section { background: #0b0e15; }
 
 .container { width: min(1100px, 92vw); margin: 0 auto; }
-.section-title { margin: 0 0 16px; font-size: clamp(28px, 5vw, 44px); }
+.section-title { margin: 0 0 16px; }
 .section-description { margin: 0 0 32px; line-height: 1.7; color: #cfd8e3; }
 
 .grid { display: grid; gap: 20px; }

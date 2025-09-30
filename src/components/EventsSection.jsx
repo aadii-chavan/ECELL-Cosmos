@@ -1,4 +1,5 @@
 import React from 'react';
+import ScrollFloat from './ScrollFloat';
 
 const mockEvents = [
   {
@@ -25,7 +26,9 @@ const EventsSection = () => {
   return (
     <section className="section events-section" id="events">
       <div className="container">
-        <h2 className="section-title">Events</h2>
+        <h2 className="section-title">
+          <ScrollFloat>Events</ScrollFloat>
+        </h2>
         <div className="grid three-col">
           {mockEvents.map((e) => (
             <article key={e.id} className="card event-card">

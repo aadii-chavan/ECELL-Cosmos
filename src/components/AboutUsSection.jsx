@@ -1,10 +1,21 @@
 import React from 'react';
+import ScrollFloat from './ScrollFloat';
 
 const AboutUsSection = () => {
   return (
     <section className="section about-section" id="about">
       <div className="container">
-        <h2 className="section-title">About Us</h2>
+        <h2 className="section-title">
+          <ScrollFloat
+            animationDuration={1}
+            ease='back.inOut(2)'
+            scrollStart='center bottom+=50%'
+            scrollEnd='bottom bottom-=40%'
+            stagger={0.03}
+          >
+            About Us
+          </ScrollFloat>
+        </h2>
         <p className="section-description">
           We are a team of explorers, engineers, and designers focused on building immersive
           digital experiences where art meets technology. Our mission is to inspire curiosity
