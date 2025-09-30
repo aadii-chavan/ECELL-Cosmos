@@ -23,19 +23,29 @@ const OurTeamSection = () => {
         <h2 className="section-title">
           <ScrollFloat>Our Team</ScrollFloat>
         </h2>
-        <div className="team-cards">
-          {members.map((m) => {
-            const avatar = `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(m.name)}&backgroundType=gradientLinear&radius=50&fontFamily=Helvetica&scale=110`;
-            return (
-              <article className="team-card" key={m.name}>
-                <img className="team-avatar" src={avatar} alt={`${m.name} avatar`} />
-                <h3 className="team-name">{m.name}</h3>
-                <div className="team-role">{m.role}</div>
-                <p className="team-desc">{m.description}</p>
-              </article>
-            );
-          })}
-        </div>
+        {[
+          { title: 'Convener', filter: (m) => m.role === 'Convener' },
+          { title: 'Chief Advisors', filter: (m) => m.role === 'Chief Advisor' },
+          { title: 'Board of Chiefs', filter: (m) => m.role === 'Board of Chiefs' },
+          { title: 'Liaisons', filter: (m) => m.role === 'Liaison' }
+        ].map(({ title, filter }) => (
+          <section className="team-section-block" key={title}>
+            <h3 className="team-section-title">{title}</h3>
+            <div className="team-cards">
+              {members.filter(filter).map((m) => {
+                const avatar = `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(m.name)}&backgroundType=gradientLinear&radius=50&fontFamily=Helvetica&scale=110`;
+                return (
+                  <article className="team-card" key={m.name}>
+                    <img className="team-avatar" src={avatar} alt={`${m.name} avatar`} />
+                    <h4 className="team-name">{m.name}</h4>
+                    <div className="team-role">{m.role}</div>
+                    <p className="team-desc">{m.description}</p>
+                  </article>
+                );
+              })}
+            </div>
+          </section>
+        ))}
       </div>
     </section>
   );

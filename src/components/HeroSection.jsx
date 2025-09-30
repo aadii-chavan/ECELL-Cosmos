@@ -637,7 +637,7 @@ export const HeroSection = () => {
       </div>
 
       {/* Scroll progress indicator */}
-      <div ref={scrollProgressRef} className="scroll-progress" style={{ visibility: 'hidden' }}>
+      {/* <div ref={scrollProgressRef} className="scroll-progress" style={{ visibility: 'hidden' }}>
         <div className="scroll-text">SCROLL</div>
         <div className="progress-track">
           <div 
@@ -648,7 +648,7 @@ export const HeroSection = () => {
         <div className="section-counter">
           {String(currentSection).padStart(2, '0')} / {String(totalSections).padStart(2, '0')}
         </div>
-      </div>
+      </div> */}
 
       {/* Additional sections for scrolling */}
       <div className="scroll-sections">
