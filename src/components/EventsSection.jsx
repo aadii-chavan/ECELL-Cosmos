@@ -32,22 +32,17 @@ const EventsSection = () => {
         <h2 className="section-title">
           <ScrollFloat>Events</ScrollFloat>
         </h2>
-        <div className="grid three-col">
+        <div className="events-grid">
           {mockEvents.map((e) => (
             <article key={e.id} className="card event-card">
-              <div className="card-body">
+              <header className="event-header">
+                <span className="event-badge">Featured</span>
                 <h3 className="event-title">{e.title}</h3>
-                <p className="event-description">{e.description}</p>
-              </div>
-              <div className="card-footer">
-                <span className="event-pill">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7 11H17M7 15H17M9 7H15M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  Featured
-                </span>
+              </header>
+              <p className="event-description">{e.description}</p>
+              <footer className="card-footer">
                 <button className="btn btn-primary">Learn More</button>
-              </div>
+              </footer>
             </article>
           ))}
         </div>
