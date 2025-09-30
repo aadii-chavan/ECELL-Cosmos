@@ -69,13 +69,16 @@ body { margin: 0; background: #000; color: #e6e6e6; font-family: system-ui, -app
 .card:hover::before { opacity: 1; }
 .card-icon { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 12px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); color: #d7e5ff; }
 /* About card inline header */
-.about-card { padding: 20px; border-radius: 18px; background: rgba(16,18,24,.75); border: 1px solid rgba(255,255,255,.10); box-shadow: 0 12px 30px rgba(0,0,0,.35); display: flex; flex-direction: column; min-height: 220px; }
+.about-card { padding: 22px; border-radius: 18px; background: rgba(16,18,24,.75); border: 1px solid rgba(255,255,255,.10); box-shadow: 0 12px 30px rgba(0,0,0,.35); display: flex; flex-direction: column; min-height: 280px; height: 100%; }
 .about-card::after { content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: 18px; background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,0) 30%); opacity: .25; }
-.about-card-header { display: flex; align-items: center; gap: 12px; margin: 0 0 10px; }
-.about-card-title { margin: 0; font-size: 18px; font-weight: 700; letter-spacing: .01em; }
+.about-card-header { display: flex; align-items: center; gap: 12px; margin: 0 0 12px; }
+.about-card-title { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: .01em; }
 .about-card p { margin: 4px 0 0; color: #cfd8e3; line-height: 1.65; }
 /* Emphasis gradient for about card titles */
 .about-card-title { background: linear-gradient(180deg, #ffffff, #c6d2ff 70%, #93a7ff 120%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* Ensure consistent columns and equal heights for About cards */
+.about-section .grid.two-col { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items: stretch; }
 
 /* About section feature cards */
 .about-section .card h3 { margin: 0 0 8px; font-size: 18px; letter-spacing: .01em; }
