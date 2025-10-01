@@ -453,33 +453,7 @@ export const HeroSection = () => {
       });
     }
 
-    // Animate title with split text (only if split spans exist)
-    if (titleRef.current) {
-      const titleChars = titleRef.current.querySelectorAll('.title-char');
-      if (titleChars.length > 0) {
-        tl.from(titleChars, {
-          y: 200,
-          opacity: 0,
-          duration: 1.5,
-          stagger: 0.05,
-          ease: "power4.out"
-        }, "-=0.5");
-      }
-    }
-
-    // Animate subtitle lines (only if lines exist)
-    if (subtitleRef.current) {
-      const subtitleLines = subtitleRef.current.querySelectorAll('.subtitle-line');
-      if (subtitleLines.length > 0) {
-        tl.from(subtitleLines, {
-          y: 50,
-          opacity: 0,
-          duration: 1,
-          stagger: 0.2,
-          ease: "power3.out"
-        }, "-=0.8");
-      }
-    }
+    // Removed title/subtitle entrance animations since hero text is removed
 
     // Animate scroll indicator
     if (scrollProgressRef.current) {
@@ -622,16 +596,7 @@ export const HeroSection = () => {
         <div className="vertical-text">ECELL-VIT</div>
       </div>
 
-      {/* Main content */}
-      <div className="hero-content cosmos-content">
-        <h1 ref={titleRef} className="hero-title" style={{ fontSize: '10vw', fontWeight: 'bold', color: '#ff4747', letterSpacing: '-0.05em', textAlign: 'center', lineHeight: 1, margin: 0 }}>
-          {splitTitle('HORIZON')}
-        </h1>
-        <div ref={subtitleRef} className="hero-subtitle cosmos-subtitle" style={{ marginTop: '2vw', textAlign: 'center', fontSize: '1.7vw', color: '#fff', fontWeight: 400 }}>
-          <p className="subtitle-line">Where vision meets reality,</p>
-          <p className="subtitle-line">we shape the future of tomorrow</p>
-        </div>
-      </div>
+      {/* Main content removed (title + subtitle) per request */}
 
       {/* Scroll progress indicator */}
       {/* <div ref={scrollProgressRef} className="scroll-progress" style={{ visibility: 'hidden' }}>
