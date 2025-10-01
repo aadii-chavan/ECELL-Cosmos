@@ -43,10 +43,9 @@ const OurTeamSection = () => {
               {members.filter(filter).map((m) => {
                 const avatar = `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(m.name)}&backgroundType=gradientLinear&radius=50&fontFamily=Helvetica&scale=110`;
                 return (
-                  <SpotlightCard enableTilt={true} rotateAmplitude={6} className="team-spotlight-card" spotlightColor="rgba(255,255,255,0.18)">
+                  <SpotlightCard key={m.name} enableTilt={true} rotateAmplitude={6} className="team-spotlight-card" spotlightColor="rgba(255,255,255,0.18)">
                     <motion.article
                       className="team-card"
-                      key={m.name}
                       variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } }}
                     >
                       <img className="team-avatar" src={avatar} alt={`${m.name} avatar`} />
