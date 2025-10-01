@@ -2,7 +2,7 @@ import React from 'react';
 import ScrollFloat from './ScrollFloat';
 import { Calendar, MapPin } from 'lucide-react';
 import { motion } from 'motion/react';
-// Removed GlareHover for simpler, clean cards
+import SpotlightCard from './SpotlightCard';
 
 const mockEvents = [
   {
@@ -47,14 +47,14 @@ const EventsSection = () => {
           variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12 } } }}
         >
           {mockEvents.map((e, idx) => (
-            <motion.article
-              key={e.id}
-              className={`card event-card`}
-              variants={{ hidden: { opacity: 0, y: 32, scale: 0.96 }, show: { opacity: 1, y: 0, scale: 1, transition: { type: 'spring', stiffness: 60, damping: 18 } } }}
-              whileHover={{ scale: 1.025, boxShadow: '0 10px 32px rgba(51,170,255,0.10)' }}
-              whileTap={{ scale: 0.98 }}
-              style={{ perspective: 900 }}
-            >
+            <SpotlightCard key={e.id} enableTilt={true} rotateAmplitude={5} className={`event-spotlight-card`} spotlightColor="rgba(255,255,255,0.18)">
+              <motion.article
+                className={`card event-card${idx % 2 === 1 ? ' event-card--alt' : ''}`}
+                variants={{ hidden: { opacity: 0, y: 32, scale: 0.96 }, show: { opacity: 1, y: 0, scale: 1, transition: { type: 'spring', stiffness: 60, damping: 18 } } }}
+                whileHover={{ scale: 1.02, boxShadow: '0 10px 32px rgba(51,170,255,0.10)' }}
+                whileTap={{ scale: 0.985 }}
+                style={{ perspective: 900 }}
+              >
                 <div className="event-content">
                   <header className="event-header">
                     <span className="event-badge">Featured</span>
@@ -77,7 +77,8 @@ const EventsSection = () => {
                     <img src={e.image} alt={`${e.title} cover`} onError={(ev) => { ev.currentTarget.style.display = 'none'; }} />
                   </motion.div>
                 )}
-            </motion.article>
+              </motion.article>
+            </SpotlightCard>
           ))}
         </motion.div>
       </div>

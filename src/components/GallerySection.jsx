@@ -13,13 +13,13 @@ const GallerySection = () => {
       </div>
       <ZoomParallax
         images={[
-          { src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80', alt: 'Architecture' },
-          { src: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80', alt: 'City' },
-          { src: 'https://images.unsplash.com/photo-1557683316-973673baf926?w=800&h=800&fit=crop&crop=entropy&auto=format&q=80', alt: 'Abstract' },
-          { src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80', alt: 'Mountains' },
-          { src: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=800&fit=crop&crop=entropy&auto=format&q=80', alt: 'Minimal' },
-          { src: 'https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80', alt: 'Ocean' },
-          { src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80', alt: 'Forest' }
+          { src: '/gallery/1.jpg', alt: 'Gallery 1' },
+          { src: '/gallery/2.jpeg', alt: 'Gallery 2' },
+          { src: '/gallery/3.jpg', alt: 'Gallery 3' },
+          { src: '/gallery/4.jpg', alt: 'Gallery 4' },
+          { src: '/gallery/5.png', alt: 'Gallery 5' },
+          { src: '/gallery/6.jpg', alt: 'Gallery 6' },
+          { src: '/gallery/7.jpg', alt: 'Gallery 7' }
         ]}
       />
     </section>

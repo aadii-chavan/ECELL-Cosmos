@@ -127,13 +127,7 @@ body { margin: 0; background: #000; color: #e6e6e6; font-family: system-ui, -app
   box-shadow: 0 8px 32px rgba(51,170,255,0.16);
   filter: brightness(1.04) saturate(1.08);
 }
-.event-glare-hover {
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  border-radius: 14px;
-  transition: box-shadow .45s cubic-bezier(.4,1.6,.4,1), background .35s;
-}
+/* Removed .event-glare-hover wrapper */
 .event-header { display: flex; flex-direction: column; gap: 8px; }
 .event-badge { align-self: flex-start; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #9bbcff; background: rgba(51,170,255,.08); border: 1px solid rgba(51,170,255,.25); padding: 6px 10px; border-radius: 999px; }
 .event-card .event-title { margin: 0; font-size: 22px; font-weight: 800; letter-spacing: .01em; }
