@@ -3,6 +3,7 @@ import './OurTeam.css';
 import ScrollFloat from './ScrollFloat';
 import { motion } from 'motion/react';
 import SpotlightCard from './SpotlightCard';
+import ZoomParallax from './ui/zoom-parallax';
 
 const members = [
   { name: 'Rohit Dane', role: 'Convener', description: 'Leads strategy, execution, and club operations.' },
@@ -61,6 +62,18 @@ const OurTeamSection = () => {
           </section>
         ))}
       </div>
+      {/* Zoom Parallax showcase under team */}
+      <ZoomParallax
+        images={[
+          { src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80', alt: 'Architecture' },
+          { src: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80', alt: 'City' },
+          { src: 'https://images.unsplash.com/photo-1557683316-973673baf926?w=800&h=800&fit=crop&crop=entropy&auto=format&q=80', alt: 'Abstract' },
+          { src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80', alt: 'Mountains' },
+          { src: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=800&fit=crop&crop=entropy&auto=format&q=80', alt: 'Minimal' },
+          { src: 'https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80', alt: 'Ocean' },
+          { src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80', alt: 'Forest' }
+        ]}
+      />
     </section>
   );
 };
