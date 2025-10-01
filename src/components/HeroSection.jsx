@@ -624,15 +624,12 @@ export const HeroSection = () => {
 
       {/* Main content */}
       <div className="hero-content cosmos-content">
-        <h1 ref={titleRef} className="hero-title">
-          
+        <h1 ref={titleRef} className="hero-title" style={{ fontSize: '10vw', fontWeight: 'bold', color: '#ff4747', letterSpacing: '-0.05em', textAlign: 'center', lineHeight: 1, margin: 0 }}>
+          {splitTitle('HORIZON')}
         </h1>
-        
-        <div ref={subtitleRef} className="hero-subtitle cosmos-subtitle">
-          <p className="subtitle-line">
-          </p>
-          <p className="subtitle-line">
-          </p>
+        <div ref={subtitleRef} className="hero-subtitle cosmos-subtitle" style={{ marginTop: '2vw', textAlign: 'center', fontSize: '1.7vw', color: '#fff', fontWeight: 400 }}>
+          <p className="subtitle-line">Where vision meets reality,</p>
+          <p className="subtitle-line">we shape the future of tomorrow</p>
         </div>
       </div>
 
