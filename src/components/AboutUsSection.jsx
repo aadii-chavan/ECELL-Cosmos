@@ -5,6 +5,7 @@ import { Target, Rocket, ListChecks } from 'lucide-react';
 import { motion } from 'motion/react';
 import SpotlightCard from './SpotlightCard';
 import Threads from './Threads';
+import LogoLoop from './LogoLoop';
 
 const AboutUsSection = () => {
   return (
@@ -86,6 +87,21 @@ const AboutUsSection = () => {
             </SpotlightCard>
           </motion.div>
         </motion.div>
+        <div style={{ marginTop: 32, marginBottom: 8 }}>
+          <LogoLoop
+            logos={Array.from({ length: 10 }, (_, i) => ({
+              src: `/logo/${i + 1}.png`,
+              alt: `Logo ${i + 1}`
+            }))}
+            logoHeight={95}
+            gap={95}
+            speed={140}
+            fadeOut={true}
+            scaleOnHover={true}
+            ariaLabel="Partner logos"
+            className="about-logo-loop"
+          />
+        </div>
       </div>
     </section>
   );
