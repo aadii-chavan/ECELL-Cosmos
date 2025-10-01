@@ -29,6 +29,9 @@
 .logoloop__list {
   display: flex;
   align-items: center;
+  list-style: none; /* remove default bullets */
+  padding: 0;
+  margin: 0;
 }
 
 .logoloop__item {
@@ -49,9 +52,14 @@
 
 .logoloop__item img {
   height: var(--logoloop-logoHeight);
-  width: auto;
+  width: var(--logoloop-logoHeight); /* make square for perfect circle */
   display: block;
-  object-fit: contain;
+  object-fit: contain; /* keep original logo aspect inside circle */
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+  box-sizing: border-box;
+  padding: calc(var(--logoloop-logoHeight) * 0.12); /* inner breathing room */
   image-rendering: -webkit-optimize-contrast;
   -webkit-user-drag: none;
   pointer-events: none;

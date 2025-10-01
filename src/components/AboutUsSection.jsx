@@ -93,8 +93,9 @@ const AboutUsSection = () => {
               src: `/logo/${i + 1}.png`,
               alt: `Logo ${i + 1}`
             }))}
-            logoHeight={95}
-            gap={95}
+            logoHeight={125}
+            gap={50}
+            margin={50}
             speed={140}
             fadeOut={true}
             scaleOnHover={true}
